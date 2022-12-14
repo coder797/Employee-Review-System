@@ -1,0 +1,117 @@
+<div class="col-xl-8">
+    <!-- Account details card-->
+    <div class="card mb-4">
+        <div class="card-header">Account Details</div>
+        <div class="card-body">
+            <form method="post"
+                  action="/admin/create">
+                <!-- Form Group (username)-->
+                <div class="mb-3">
+                    <label class="small mb-1"
+                           for="name">Name
+                    </label>
+
+                    <input class="form-control"
+                           id="name"
+                           type="text"
+
+                           value=""
+                           name="name"
+                           required>
+
+
+                </div>
+                <!-- Form Row-->
+                <div class="row gx-3 mb-3">
+                    <!-- Form Group (first name)-->
+                    <div class="col-md-6">
+                        <label class="small mb-1"
+                               for="department">Department</label>
+
+                        <select class="form-select"
+                                aria-label="Default select example"
+                                name="department"
+                                required>
+
+
+                            <option value="HR"
+                                    selected>Human Resource
+                            </option>
+
+                            <option value="Marketing">Marketing</option>
+                            <option value="Production"
+                                    selected>Production
+                            </option>
+                            <option value="Sales"
+                                    selected>Sales
+                            </option>
+                        </select>
+
+                    </div>
+                    <!-- Form Group (last name)-->
+                    <div class="col-md-6">
+                        <label class="small mb-1"
+                               for="userType">Is she/He admin?</label>
+
+                        <select class="form-select"
+                                aria-label="Default select example"
+                                name="userType"
+                                required>
+
+                            <option value="admin"> Yes</option>
+                            <option value="employee"
+                                    selected> No
+                            </option>
+
+                        </select>
+
+
+                    </div>
+                </div>
+                <!-- Form Row        -->
+                <div class="row gx-3 mb-3">
+                    <!-- Form Group (organization name)-->
+                    <div class="col-md-6">
+                        <label class="small mb-1"
+                               for="email">Email</label>
+
+                        <input class="form-control"
+                               id="email"
+                               type="email"
+                               placeholder="Enter your organization name"
+                               value=""
+                               name="email"
+                               required>
+
+
+                    </div>
+                    <!-- Form Group (location)-->
+                    <div class="col-md-6">
+                        <label class="small mb-1"
+                               for="password">Password</label>
+
+                        <input class="form-control"
+                               id="password"
+                               type="password"
+                               name="password"
+                               required
+                        >
+
+                    </div>
+                </div>
+                <!-- Form Group (email address)-->
+
+                <!-- Form Row-->
+
+                <!-- Save changes button-->
+
+                <button class="btn btn-primary"
+                        type="submit">ADD
+                </button>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,36 @@
+
+
+<div class="col-md-4">
+    <form action="">
+        <div class="card"
+             style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Rating</h5>
+                <input type="number"
+                       name="ranking"
+                       min="1"
+                       max="10"
+                       class="form-control"
+                       value="<%= review.ranking %>">
+                <input type="hidden"
+                       name="reviewBy"
+                       value="<%= review.reviewBy.id %>">
+                <input type="hidden"
+                       name="reviewFor"
+                       value="<%= review.reviewFor %>">
+                <input type="hidden"
+                       name="performanceId"
+                       value="<%= review.id %>">
+                <h6 class="card-subtitle mt-1 mb-1 text-muted">Given By <%= review.reviewBy.name %></h6>
+                <textarea class="form-control"
+                          id="textarea"
+                          rows="3"
+                          name="description"><%= review.description %></textarea>
+                <a href="/admin/review/update"
+                   class="card-link review">Update</a>
+                <a href="/admin/review/delete"
+                   class="card-link review">Delete</a>
+            </div>
+        </div>
+    </form>
+</div>

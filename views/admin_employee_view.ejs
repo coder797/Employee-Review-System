@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-7">
+            <hr class="mt-0 mb-4">
+            <div class="row">
+                <!--partial for adding user-->
+                <%- include('./profile'); %>
+
+            </div>
+        </div>
+        <div class="col">
+            <hr class="mt-0 mb-4">
+            <div class="card"
+                 style="width: 20rem;">
+                <div class="card-header">
+                    Employee List
+                </div>
+                <ul class="list-group list-group-flush">
+                    <% for(employee of employees){ %>
+                        <%- include('./partials/_employee_list'); %>
+                    <% } %>
+                    <button type="button"
+                            class="btn btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                        Launch static backdrop modal
+                    </button>
+                    <%- include('./partials/_request_review'); %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/_create_performance'); %>
+    <div class="mx-auto mt-1">
+        <div class="row">
+            <h4>Reviews</h4>
+        </div>
+        <div class="row reviews-container">
+            <!--            // show reviews only when it's there-->
+            <% if(userp.performanceList.length){ %>
+                <% for(review of userp.performanceList){ %>
+                <% console.log('hi', review) %>
+                <%- include('./partials/_reviews'); %>
+                <% } %>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<script src="/js/admin_employee_view.js"></script>

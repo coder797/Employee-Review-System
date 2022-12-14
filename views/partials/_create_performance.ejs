@@ -1,0 +1,58 @@
+<form class="row"
+<% if(locals.user.userType == 'admin'){ %>
+      action="/admin/createReview"
+<% } else { %>
+      action="/employee/createReview"
+        <% } %>
+      method="post">
+    <div class="row">
+        <h4>Create Performance</h4>
+    </div>
+    <div class="col-5">
+        <div>
+
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Why giving this rank</div>
+                <div class="card-body">
+
+                    <!-- Form Group (username)-->
+                    <div class="mb-3">
+                                        <textarea class="form-control"
+                                                  id="textarea"
+                                                  rows="3"
+                                                  name="description"></textarea>
+                    </div>
+                    <input type="hidden"
+                           name="reviewBy"
+                           value="<%= locals.user.id %>">
+                    <input type="hidden"
+                           name="reviewFor"
+                           value="<%= userp.id %>">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-3">
+
+        <!-- Form Group (organization name)-->
+
+
+        <label for="ranking"
+               class="small mb-1">Rank 1 to 10</label>
+        <input type="number"
+               name="ranking"
+               min="1"
+               max="10"
+               class="form-control">
+
+    </div>
+    <div class="col">
+        <button class="btn btn-primary mt-4"
+                type="submit">ADD
+        </button>
+    </div>
+
+</form>

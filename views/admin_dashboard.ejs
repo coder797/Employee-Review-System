@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-7">
+            <hr class="mt-0 mb-4">
+            <div class="row">
+                <!--partial for adding user-->
+                <%- include('./partials/_add_user'); %>
+
+            </div>
+        </div>
+        <div class="col">
+            <hr class="mt-0 mb-4">
+            <div class="card"
+                 style="width: 20rem;">
+                <div class="card-header">
+                    Employee List
+                </div>
+                <ul class="list-group list-group-flush">
+                    <% for(employee of employees){ %>
+                        <%- include('./partials/_employee_list'); %>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

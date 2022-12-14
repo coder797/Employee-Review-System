@@ -1,0 +1,212 @@
+<div class="container-xl px-4 mt-4">
+    <!-- Account page navigation-->
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">
+                    <% if(userp.userType == 'admin'){ %>
+                        Admin Name
+                    <% }else { %>
+                        Employee
+                        Name
+                    <% } %>
+                </div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <h4><%= userp.name %></h4>
+                    <!-- Profile picture help block-->
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Account Details</div>
+                <div class="card-body">
+                    <form method="post"
+                          action="/user/update/<%= userp.id %>">
+                        <!-- Form Group (username)-->
+                        <div class="mb-3">
+                            <label class="small mb-1"
+                                   for="name">Name
+                            </label>
+                            <% if(locals.user.userType == 'admin'){ %>
+                                <input class="form-control"
+                                       id="name"
+                                       type="text"
+
+                                       value="<%= userp.name %>"
+                                       name="name"
+                                       required>
+                            <% } else { %>
+                                <input class="form-control"
+                                       id="name"
+                                       type="text"
+
+                                       value="<%= userp.name %>"
+                                       name="name"
+                                       required
+                                       disabled>
+                            <% } %>
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1"
+                                       for="department">Department</label>
+                                <% if(locals.user.userType == 'admin'){ %>
+                                <select class="form-select"
+                                        aria-label="Default select example"
+                                        name="department"
+                                        required>
+                                    <% } else { %>
+
+                                    <select class="form-select"
+                                            aria-label="Default select example"
+                                            name="department"
+                                            disabled
+                                            required>
+                                        <% } %>
+                                        <% if(userp.department === "HR"){ %>
+                                            <option value="HR"
+                                                    selected>Human Resource
+                                            </option>
+                                        <% }else{ %>
+                                            <option value="HR">human resource</option>
+                                        <% } %>
+                                        <% if(userp.department === "Sales"){ %>
+                                            <option value="Sales"
+                                                    selected>Sales
+                                            </option>
+                                        <% }else{ %>
+                                            <option value="Sales">Sales</option>
+                                        <% } %>
+                                        <% if(userp.department === "Production"){ %>
+                                            <option value="Production"
+                                                    selected>Production
+                                            </option>
+                                        <% }else{ %>
+                                            <option value="Production">Production</option>
+                                        <% } %>
+                                        <% if(userp.department === "Marketing"){ %>
+                                            <option value="Marketing"
+                                                    selected>Marketing
+                                            </option>
+                                        <% }else{ %>
+                                            <option value="Marketing">Marketing</option>
+                                        <% } %>
+                                    </select>
+
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1"
+                                       for="userType">Is she/He admin?</label>
+                                <% if(locals.user.userType == 'admin'){ %>
+                                    <select class="form-select"
+                                            aria-label="Default select example"
+                                            name="userType"
+                                            required>
+                                        <% if(userp.userType === "admin"){ %>
+                                            <option value="admin"
+                                                    selected> Yes
+                                            </option>
+                                            <option value="employee"> No</option>
+                                        <% }else{ %>
+                                            <option value="admin"> Yes</option>
+                                            <option value="employee"
+                                                    selected> No
+                                            </option>
+                                        <% } %>
+                                    </select>
+                                <% } else { %>
+                                    <select class="form-select"
+                                            aria-label="Default select example"
+                                            name="userType"
+                                            required
+                                            disabled>
+                                        <% if(userp.userType === "admin"){ %>
+                                            <option value="admin"
+                                                    selected> Yes
+                                            </option>
+                                            <option value="employee"> No</option>
+                                        <% }else{ %>
+                                            <option value="admin"> Yes</option>
+                                            <option value="employee"
+                                                    selected> No
+                                            </option>
+                                        <% } %>
+                                    </select>
+                                <% } %>
+                            </div>
+                        </div>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1"
+                                       for="email">Email</label>
+                                <% if(locals.user.userType == 'admin'){ %>
+                                    <input class="form-control"
+                                           id="email"
+                                           type="email"
+                                           placeholder="Enter your organization name"
+                                           value="<%= userp.email %>"
+                                           name="email"
+                                           required>
+                                <% }else{ %>
+                                    <input class="form-control"
+                                           id="email"
+                                           type="email"
+                                           placeholder="Enter your organization name"
+                                           value="<%= userp.email %>"
+                                           name="email"
+                                           required
+                                           disabled>
+                                <% } %>
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1"
+                                       for="password">Password</label>
+                                <% if(locals.user.userType == 'admin'){ %>
+                                    <input class="form-control"
+                                           id="password"
+                                           type="password"
+                                           name="password"
+                                           >
+                                <% }else{ %>
+                                    <input class="form-control"
+                                           id="password"
+                                           type="password"
+                                           name="password"
+
+                                           disabled>
+                                <% } %>
+                            </div>
+                        </div>
+                        <!-- Form Group (email address)-->
+
+                        <!-- Form Row-->
+
+                        <!-- Save changes button-->
+                        <% if(locals.user.userType == 'admin'){ %>
+                            <button class="btn btn-primary"
+                                    type="submit">Save changes
+                            </button>
+                        <% } %>
+                        <% if(locals.user.userType == 'admin'){ %>
+                            <button class="btn btn-primary"
+                                    type="submit" name="delete">Remove
+                            </button>
+                        <% } %>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

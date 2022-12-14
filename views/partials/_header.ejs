@@ -1,0 +1,19 @@
+<% if(locals.user){ %>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <% if(user.userType == "admin"){ %>
+                Admin Dashboard
+            <% }else{ %>
+                Employee Dashboard
+            <% } %>
+        </a>
+        <form class="d-flex" method="post">
+            <a class="navbar-brand mb-0 h3" href="/user/profile/<%=user._id%>"><%=user.name%></a>
+
+                <a class="navbar-brand h3" href="/user/signOut" type="submit">Sign Out</a>
+
+        </form>
+    </div>
+</nav>
+<% } %>

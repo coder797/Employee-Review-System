@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="row">
+        <div class="col-7">
+            <hr class="mt-0 mb-4">
+            <div class="row">
+                <!--partial for adding user-->
+                <%- include('./profile'); %>
+
+            </div>
+        </div>
+        <div class="col">
+            <hr class="mt-0 mb-4">
+            <div class="card"
+                 style="width: 20rem;">
+                <div class="card-header">
+                    Employee List to review
+                </div>
+                <ul class="list-group list-group-flush">
+                    <% if(userp.listToReview.length){ %>
+                        <% for (var i = 0; i < userp.listToReview.length;  i++ ) { %>
+                            <% if(userp.listToReview[i].id){ %>
+
+                                <%= console.log(userp.listToReview[i].id) %>
+
+                                <li class="list-group-item"><a href="/employee/review/<%= userp.listToReview[i].id %>"
+                                                               class="card-link"><%= userp.listToReview[i].name %></a>
+                                </li>
+
+
+                            <% } %>
+                        <% } %>
+
+                    <% } %>
+
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <!--            // show reviews only when it's there-->
+            <% if(userp.performanceList.length){ %>
+                <% for(review of userp.performanceList){ %>
+                    <% console.log('hi', review) %>
+                    <%- include('./partials/_reviews'); %>
+                <% } %>
+            <% } %>
+        </div>
+    </div>
+    <!--    <form class="row"-->
+    <!--          action=""-->
+    <!--          method="post">-->
+    <!--        <div class="row">-->
+    <!--            <h4>Create Performance</h4>-->
+    <!--        </div>-->
+    <!--        <div class="col-5">-->
+    <!--            <div>-->
+
+    <!--                &lt;!&ndash; Account details card&ndash;&gt;-->
+    <!--                <div class="card mb-4">-->
+    <!--                    <div class="card-header">Why giving this rank</div>-->
+    <!--                    <div class="card-body">-->
+
+    <!--                        &lt;!&ndash; Form Group (username)&ndash;&gt;-->
+    <!--                        <div class="mb-3">-->
+
+
+    <!--                            <textarea class="form-control"-->
+    <!--                                      id="textarea"-->
+    <!--                                      rows="3"-->
+    <!--                                      name="description"></textarea>-->
+
+
+    <!--                        </div>-->
+
+    <!--                    </div>-->
+    <!--                </div>-->
+
+    <!--            </div>-->
+    <!--        </div>-->
+
+    <!--        <div class="col-3">-->
+
+    <!--            &lt;!&ndash; Form Group (organization name)&ndash;&gt;-->
+
+
+    <!--            <label for="ranking"-->
+    <!--                   class="small mb-1">Rank 1 to 10</label>-->
+    <!--            <input type="number"-->
+    <!--                   name="ranking"-->
+    <!--                   min="1"-->
+    <!--                   max="10"-->
+    <!--                   class="form-control">-->
+
+    <!--        </div>-->
+    <!--        <div class="col">-->
+    <!--            <button class="btn btn-primary mt-4"-->
+    <!--                    type="submit">ADD-->
+    <!--            </button>-->
+    <!--        </div>-->
+
+    <!--    </form>-->
+
+</div>
+
+
