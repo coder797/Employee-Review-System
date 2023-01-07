@@ -13,8 +13,6 @@ List of performance reviews requiring feedback
 
 Submit feedback
 
-##Technologies used:
-Frontend: [React.js](https://facebook.github.io/react/) with [Redux](http://redux.js.org/), [react-bootstrap](https://react-bootstrap.github.io/)
 
 Backend: [Node.js](https://nodejs.org/) with [Express.js](http://expressjs.com/)
 
